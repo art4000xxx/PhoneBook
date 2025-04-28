@@ -2,9 +2,10 @@ package com.example.phonebook;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class PhoneBook {
-    private final Map<String, String> nameToNumber = new HashMap<>();
+    private final Map<String, String> nameToNumber = new TreeMap<>();
     private final Map<String, String> numberToName = new HashMap<>();
 
     public int add(String name, String number) {
@@ -24,6 +25,6 @@ public class PhoneBook {
     }
 
     public String printAllNames() {
-        return "";
+        return String.join("\n", nameToNumber.keySet());
     }
 }
