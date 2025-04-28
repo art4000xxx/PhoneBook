@@ -61,4 +61,22 @@ public class PhoneBookTest {
         String number = phoneBook.findByName("Bob");
         assertNull(number, "Should return null for non-existing name");
     }
+
+    @Test
+    void testPrintAllNamesEmpty() {
+        assertEquals("", phoneBook.printAllNames(), "Empty phonebook should return empty string");
+    }
+
+    @Test
+    void testPrintAllNamesSingleContact() {
+        phoneBook.add("Alice", "1234567890");
+        assertEquals("Alice", phoneBook.printAllNames(), "Should return single name");
+    }
+
+    @Test
+    void testPrintAllNamesMultipleContacts() {
+        phoneBook.add("Bob", "0987654321");
+        phoneBook.add("Alice", "1234567890");
+        assertEquals("Alice\nBob", phoneBook.printAllNames(), "Should return names in alphabetical order");
+    }
 }
